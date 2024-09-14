@@ -1,0 +1,60 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load the dataset
+file_path = 'DataSet.xlsx'
+data = pd.read_excel(file_path)
+
+# Update column names based on your dataset
+order_dates = data['Order Date']
+profit = data['Profit']
+regions = data['Region']
+sales_channels = data['Sales Channel']
+sales_amount = data['Order Amount']
+
+# Convert dates to datetime format
+order_dates = pd.to_datetime(order_dates)
+
+# Simple graph 1: Sales Amount Over Time
+plt.figure(figsize=(10, 6))
+plt.plot(order_dates, sales_amount, marker='o', linestyle='-', color='b')
+plt.title('Sales Amount Over Time')
+plt.xlabel('Order Date')
+plt.ylabel('Sales Amount')
+plt.grid(True)
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+
+# Simple graph 2: Profit Over Time
+plt.figure(figsize=(10, 6))
+plt.plot(order_dates, profit, marker='o', linestyle='-', color='g')
+plt.title('Profit Over Time')
+plt.xlabel('Order Date')
+plt.ylabel('Profit')
+plt.grid(True)
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+
+# Simple graph 3: Sales Amount by Region
+plt.figure(figsize=(10, 6))
+region_sales = data.groupby('Region')['Order Amount'].sum()
+region_sales.plot(kind='bar', color='c')
+plt.title('Sales Amount by Region')
+plt.xlabel('Region')
+plt.ylabel('Sales Amount')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+
+# Simple graph 4: Sales Amount by Sales Channel
+plt.figure(figsize=(10, 6))
+channel_sales = data.groupby('Sales Channel')['Order Amount'].sum()
+channel_sales.plot(kind='bar', color='m')
+plt.title('Sales Amount by Sales Channel')
+plt.xlabel('Sales Channel')
+plt.ylabel('Sales Amount')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()

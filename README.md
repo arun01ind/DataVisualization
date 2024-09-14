@@ -1,0 +1,2 @@
+**About the Project:**
+This Data Visualization project is designed to turn complex data into insightful, visually appealing representations. The project leverages powerful libraries and tools to generate dynamic, interactive charts and graphs, enabling users to explore trends, patterns, and anomalies in data sets. Whether you're analyzing large-scale data or just want to create simple, meaningful visuals, this project provides a flexible and scalable solution.
